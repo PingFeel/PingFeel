@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+/* Cambiar el color de fondo del preloader según el momento del día */
+body[data-time='day'] #preloader {
+    background: #F9F9F9;
+}
+
+body[data-time='night'] #preloader {
+    background: #232543;
+}
+
+#preloader img {
+    width: 15vw;
+    max-width: 150px;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    #preloader img {
+        width: 40vw;
+        max-width: 500px;
+    }
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#penguinImage {
+    width: 25vw;
+    max-width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.text-container {
+    text-align: left;
+    max-width: 400px;
+}
+
+h1 {
+    color: #333;
+    font-size: 3.5em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #666;
+    font-size: 1.5em;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+body[data-time='day'] {
+    background: url('../fondo_dia.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body[data-time='night'] {
+    background: url('../fondo_noche.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Nueva sección con fondo desenfocado */
+#feelings-section {
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(52, 51, 51, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+
+/* Estilo para los botones de emociones */
+.emotion-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.texto {
+    padding: 15px;
+}
+
+/* Diferentes colores de fondo para cada emoción */
+.emotion-button.happy {
+    background-color: #FFD700;
+    /* Amarillo para felicidad */
+}
+
+.emotion-button.grateful {
+    background-color: #90EE90;
+    /* Verde claro para gratitud */
+}
+
+.emotion-button.angry {
+    background-color: #FF6347;
+    /* Rojo tomate para enojo */
+}
+
+.emotion-button.anxious {
+    background-color: #4682B4;
+    /* Azul acero para ansiedad */
+}
+
+.emotion-button.lonely {
+    background-color: #778899;
+    /* Gris pizarra claro para soledad */
+}
+
+.emotion-button.sad {
+    background-color: #87CEEB;
+    /* Azul cielo para tristeza */
+}
+
+.emotion-button {
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    /* Fija altura para todos los botones */
+}
+
+.emotion-button img {
+    width: 90px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.emotion-button p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #000000;
+}
+
+.emotion-button:hover {
+    transform: scale(1.1);
+    filter: brightness(0.9);
+    /* Oscurecer un poco en hover */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    #home {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #penguinImage {
+        width: 55vw;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    #feelings-section {
+        border-radius: 10px;
+    }
+
+    .emotion-buttons {
+        grid-template-columns: repeat(1, 1fr);
+        /* Un botón por fila */
+    }
+
+    .emotion-button {
+        height: auto;
+        /* Permitir que la altura se ajuste automáticamente */
+        padding: 20px;
+    }
+}
+
+/* Cambiar el color del texto según el tiempo */
+body[data-time='day'] h1,
+body[data-time='day'] h2 {
+    color: black;
+}
+
+body[data-time='night'] h1,
+body[data-time='night'] h2 {
+    color: white;
+}
+
+/* Color específico para el h1 en la sección de sentimientos */
+#feelings-section h1 {
+    color: white;
+}
+
+.modal {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.814);
+    /* Fondo oscuro con opacidad */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    /* Por encima de otros elementos */
+}
+
+.card {
+    background-color: #f1f5fc;
+    /* Fondo claro por defecto */
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.514);
+}
+
+/* Cambios para el modo noche */
+body[data-time='night'] .card {
+    background-color: #232543;
+    /* Fondo oscuro para el modo noche */
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modalPenguinImage {
+    width: 200px;
+    /* Ajusta según tus necesidades */
+    margin-bottom: 15px;
+}
+
+.info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+    /* Color del texto para el modo día */
+}
+
+/* Cambiar el color del h1 en modo noche */
+body[data-time='night'] .info h1 {
+    color: white;
+    /* Color blanco para el modo noche */
+}
+
+.info p {
+    margin-bottom: 20px;
+    color: #1a1919;
+    /* Color del texto para el modo día */
+}
+
+/* Cambiar el color del párrafo en modo noche */
+body[data-time='night'] .info p {
+    color: white;
+    /* Color blanco para el párrafo en modo noche */
+}
+
+.btn {
+    background-color: #7b89d9;
+    /* Color principal */
+    color: rgb(255, 255, 255);
+    border: none;
+    margin: 2px;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    transition: .5s ease;
+}
+
+.btn:hover {
+    background-color: #5055b2;
+    /* Color de hover */
+    scale: 1.1;
+}
+
+.close {
+    color: rgb(255, 255, 255);
+    border: none;
+    margin: 2px;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    background-color: #ff6347;
+    /* Color para cerrar */
+    color: white;
+    transition: .5s ease;
+}
+
+.close:hover {
+    background-color: #ed3615;
+    /* Color de hover para cerrar */
+    scale: 1.1;
+}
+
+#letter-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Altura completa de la pantalla */
+}
+
+#letterImage {
+    width: 80vw;
+    /* Ancho del 80% de la pantalla */
+    max-width: 600px;
+    /* Ancho máximo */
+    height: auto;
+    /* Mantener proporciones */
+    transition: transform 0.3s ease;
+}
+
+#letterImage:hover {
+    transform: scale(1.05);
+    /* Aumentar ligeramente en hover */
+}
+
+/* Estilos del modal */
+.modal-letter {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.89);
+    /* Fondo oscuro con opacidad */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    /* Por encima de otros elementos */
+}
+
+.modal-content-letter {
+    background-color: #f1f5fc;
+    /* Fondo blanco para el contenido */
+    border-radius: 15px;
+    padding: 50px;
+    max-width: 600px;
+    width: 80%;
+    /* Ajustar al 80% de la pantalla */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-letter {
+    color: rgb(255, 255, 255);
+    border: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    background-color: #ff6347;
+    /* Color para cerrar */
+    color: white;
+    transition: .5s ease;
+}
+
+.close-letter:hover {
+    background-color: #ed3615;
+    /* Color de hover para cerrar */
+    scale: 1.1;
+}
+
+/* Cambios para el modo noche */
+body[data-time='night'] .modal-content-letter {
+    background-color: #232543;
+    /* Fondo oscuro para el modo noche */
+    color: white;
+}
+
+.modal-content-letter h1 {
+    font-size: 2rem;
+    text-align: start;
+}
+
+.modal-content-letter p {
+    font-size: 1rem;
+    text-align: start;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    #letterImage {
+        width: 90vw;
+        /* Más ancho en dispositivos móviles */
+        max-width: none;
+        /* Sin límite de ancho máximo */
+    }
+
+    .modal-content-letter {
+        width: 95%;
+        /* Ajustar al 95% en móvil */
+    }
+}
