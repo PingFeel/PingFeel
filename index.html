@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PingFeel | Dámaris 🐧</title>
+    <link rel="icon" href="recursos/icon.png">
+    <link rel="stylesheet" href="recursos/css/index.css">
+</head>
+
+<body>
+    <div id="preloader">
+        <img src="recursos/icon.png" alt="Icono PingFeel" />
+    </div>
+
+    <section id="home">
+        <div class="header-container">
+            <img id="penguinImage" src="" alt="Pingüino" />
+            <div class="text-container">
+                <h1 id="greeting"></h1>
+                <h2 id="verse"></h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="feelings-section">
+        <div class="feelings-container">
+            <h1 class="texto">¿Cómo te sientes hoy?</h1>
+            <div class="emotion-buttons">
+                <div class="emotion-button happy">
+                    <img src="recursos/emociones/feliz.png" alt="Feliz">
+                    <p>Feliz</p>
+                </div>
+                <div class="emotion-button grateful">
+                    <img src="recursos/emociones/agradecido.png" alt="Agradecido">
+                    <p>Agradecida</p>
+                </div>
+                <div class="emotion-button angry">
+                    <img src="recursos/emociones/enojado.png" alt="Enojado">
+                    <p>Enojada</p>
+                </div>
+                <div class="emotion-button anxious">
+                    <img src="recursos/emociones/ansioso.png" alt="Ansioso">
+                    <p>Ansiosa</p>
+                </div>
+                <div class="emotion-button lonely">
+                    <img src="recursos/emociones/solitario.png" alt="Solitario">
+                    <p>Solitaria</p>
+                </div>
+                <div class="emotion-button sad">
+                    <img src="recursos/emociones/triste.png" alt="Triste">
+                    <p>Triste</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="modal">
+        <div class="card">
+            <div class="modal-content">
+                <img id="modalPenguinImage" src="recursos/ventana.gif" alt="Pingüino" />
+                <div class="info">
+                    <h1>Esto es para ti:</h1>
+                    <p id="modalVerse">Versículo relacionado</p>
+                    <button class="btn" id="copyButton">COPIAR</button>
+                    <button class="close" id="closeModal">CERRAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="letter-section">
+        <img id="letterImage" src="recursos/carta.png" alt="Carta" />
+    </div>
+
+    <!-- Modal para la carta -->
+    <div id="letterModal" class="modal-letter">
+        <div class="modal-content-letter">
+            <h1>Holaaaa :)</h1>
+            <br>
+            <p>Esta carta es un recordatorio para agradecer a Dios por haberte puesto en mi camino. Desde el primer día, tu
+                amabilidad y fortaleza me han inspirado profundamente. Tu presencia ha sido una bendición en mi vida
+                y cada día me siento más agradecido por lo que eres y por lo que compartimos.</p>
+            <br>
+            <p>A lo largo de este tiempo, he visto cómo Dios ha trabajado a través de ti, mostrándome Su amor y Su
+                gracia de maneras que jamás imaginé. Has sido un apoyo inquebrantable, un faro de luz en momentos de
+                oscuridad, y me has mostrado la importancia de confiar en los planes que Él tiene para nosotros.</p>
+            <br>
+            <p>Esta carta es una pequeña forma de decirte lo agradecido que estoy. El amor de Dios que veo en ti es una
+                constante fuente de inspiración, y quiero agradecerte por cada palabra de aliento, cada oración y cada
+                acto de bondad que hiciste hacia mi.</p>
+            <br>
+            <p>Gracias por ser tan buena conmigo.</p>
+            <br>
+            <p>- Rolan...</p>
+
+
+            <button class="close-letter">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="recursos/javascrip/index.js"></script>
+</body>
+
+</html>
